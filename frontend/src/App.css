@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&display=swap');
+/* App.css */
+.animated-header {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  /* App.css */
+
+.video-transition {
+  transition: opacity 3s ease;
+}
+  
+  /* HomePage.css */
+  @keyframes moveAndRotate {
+    0% {
+      opacity: 0;
+      transform: translateY(20px) rotate(-90deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) rotate(0);
+    }
+  }

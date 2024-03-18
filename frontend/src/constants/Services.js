@@ -1,11 +1,15 @@
 import image1 from "../images/spa.jpg";
 import image2 from "../images/massage.jpeg"
+import image3 from "../images/facila.jpeg"
+import image4 from "../images/morbath.jpg"
+import image5 from "../images/download.jpeg"
+import image6 from "../images/image1.jpg"
 
  export const Services = [
     {
       id: 1,
       title: 'Service 1',
-      description: "Some description text. Some dummy text here. Welcome to Sling AcademyLorem Ipsum is simply dummy text of the printing and typesettingindustry. Lorem Ipsum has been the industry's standard dummy text eversince the 1500s, when an unknown printer took a galley of type andscrambled it to make a type specimen book. It has survived not onlyenturies, but also the leap into electronic typesetting,remaining essentially unchanged. It was popularised in the 1960s withthe release of Letraset sheets containing Lorem Ipsum passages, andmore recently with desktop publishing software like Aldus PageMakerincluding versions of Lorem Ipsum.",
+      description: "Sic typesettin.",
       imageUrl:`${image1}`
     },
     {
@@ -18,25 +22,25 @@ import image2 from "../images/massage.jpeg"
         id: 3,
         title: 'Service 3',
         description: 'Description for Service 1',
-        imageUrl:`${image1}`
+        imageUrl:`${image3}`
       },
       {
         id: 4,
         title: 'Service 4',
         description: 'Description for Service 2',
-        imageUrl:`${image1}`
+        imageUrl:`${image4}`
       },
       {
         id: 5,
         title: 'Service 5',
         description: 'Description for Service 1',
-        imageUrl:`${image1}`
+        imageUrl:`${image5}`
       },
       {
         id: 6,
         title: 'Service 6',
         description: 'Description for Service 2',
-        imageUrl:`${image1}`
+        imageUrl:`${image6}`
       },
     // Add more services as needed
   ];

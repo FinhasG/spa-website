@@ -1,36 +1,34 @@
-
 import React from 'react';
 import ServicesPage from '../components/ServicesPage';
 import HomePage from '../components/HomePage';
-import AboutPage from '../components/AboutPage'
-import ContactPage from '../components/contact/ContactPage'
+import AboutPage from '../components/AboutPage';
+import ContactPage from '../components/contact/ContactPage';
 import Footer from '../components/Footer';
-
-
 import { Link } from 'react-scroll';
 
-const MainnPage = () => {
+const MainPage = () => {
   return (
     <div>
-        <div id="Home" >
-        <HomePage/>
+      <div id="Home">
+        <HomePage />
       </div>
-      <div id="services"  >
-       <ServicesPage/>
+      <div id="services">
+        <ServicesPage />
       </div>
-      <div id="about" >
-        {/* <h1 className="text-3xl text-center py-20">About Section</h1> */}
-        {/* Your content for About */}
-        <AboutPage/>
+      <div id="about">
+        <AboutPage />
       </div>
-      <div id="contact" >
-        {/* <h1 className="text-3xl text-center py-20">Contact Section</h1> */}
-        {/* Your content for Contact */}
-        <ContactPage/>
+      <div id="contact">
+        <ContactPage />
       </div>
-      <Footer/>
+      <Footer />
+      <style jsx global>{`
+        @media (max-width: 768px) {
+          /* Add responsive styles here */
+        }
+      `}</style>
     </div>
   );
 };
 
-export default MainnPage;
+export default MainPage;
