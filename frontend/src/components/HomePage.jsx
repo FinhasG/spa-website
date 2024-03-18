@@ -69,7 +69,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="relative bg-cover flex justify-center items-center h-screen">
+    <div className="relative mb-20 bg-cover flex justify-center items-center h-screen ">
       <video
         key={videos[currentVideoIndex]}
         src={videos[currentVideoIndex]}

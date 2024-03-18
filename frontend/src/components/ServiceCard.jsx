@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ServiceCard = ({ imageUrl, title, description, additionalCards }) => {
   const [isShuffled, setIsShuffled] = useState(false);
@@ -12,33 +12,44 @@ const ServiceCard = ({ imageUrl, title, description, additionalCards }) => {
   };
 
   return (
-    <div className={`relative w-full bg-white shadow-lg rounded-2xl overflow-hidden transform hover:scale-105 transition-transform duration-500 ${isShuffled ? 'transition-all' : ''}`}>
-      <div className="flex justify-between mt-2">
-        {additionalCards && additionalCards.map((card, index) => (
-          <div key={index} className="w-1/3 p-2">
-            <div className="bg-gray-100 p-4 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold mb-2">{card.title}</h3>
-              <p className="text-gray-700">{card.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-      <Link to={{
-        pathname:'/service',
+    <Link
+      to={{
+        pathname: "/service",
         state: {
           imageUrl: imageUrl,
           title: title,
           description: description,
-        }
-      }}>
+        },
+      }}
+    >
+      <div
+        className={`relative w-full bg-white shadow-lg rounded-2xl overflow-hidden transform hover:scale-105 transition-transform duration-500 ${
+          isShuffled ? "transition-all" : ""
+        }`}
+      >
+        <div className="flex justify-between mt-2">
+          {additionalCards &&
+            additionalCards.map((card, index) => (
+              <div key={index} className="w-1/3 p-2">
+                <div className="bg-gray-100 p-4 rounded-lg shadow-md">
+                  <h3 className="text-lg font-semibold mb-2">{card.title}</h3>
+                  <p className="text-gray-700">{card.description}</p>
+                </div>
+              </div>
+            ))}
+        </div>
         <img className="w-full h-64 object-cover" src={imageUrl} alt={title} />
-      </Link>
-      <div className="absolute bottom-0 w-full bg-white bg-opacity-75 p-4" style={{ height: '5rem' }}> {/* Adjust height as needed */}
-        <h2 className="text-xl font-bold text-gray-800 mb-2">{title}</h2>
-        <p className="text-gray-700">{description}</p>
+        <div
+          className="absolute bottom-0 w-full bg-white bg-opacity-75 p-4"
+          style={{ height: "5rem" }}
+        >
+          {" "}
+          {/* Adjust height as needed */}
+          <h2 className="text-xl font-bold text-gray-800 mb-2">{title}</h2>
+          <p className="text-gray-700">{description}</p>
+        </div>
       </div>
-      {/* <button onClick={shuffleCards} className="absolute bottom-2 right-2 py-2 px-4 text-white bg-green-500 font-semibold uppercase rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300 ease-in-out">Read More</button> */}
-    </div>
+    </Link>
   );
 };
 
@@ -159,7 +170,6 @@ export default ServiceCard;
 
 // export default ServiceCard;
 
-
 // import React from 'react';
 // import {Link} from 'react-router-dom'
 
@@ -174,7 +184,7 @@ export default ServiceCard;
 //         description: 'description',
 //       }
 // }}>
-//   <img className="w-full " src={imageUrl} alt={title}/></Link> 
+//   <img className="w-full " src={imageUrl} alt={title}/></Link>
 //       <div className="p-4">
 //         <p className="text-gray-700 text-base">{description}</p>
 //       </div>

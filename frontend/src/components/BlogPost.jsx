@@ -1,64 +1,75 @@
-import React, { useState, useEffect } from 'react';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { createClient } from 'contentful';
+import React, { useEffect, useState } from 'react'
+import { createClient } from "contentful"
+import { Link } from 'react-router-dom'
 
-const client = createClient({
-  space: 'YOUR_CONTENTFUL_SPACE_ID',
-  accessToken: 'YOUR_CONTENTFUL_ACCESS_TOKEN',
-});
+const BlogList = () => {
+  const [blogPosts, setBlogPosts] = useState([])
+  const client = createClient({ space: "4przepv332rr", accessToken: "i1SB-ZBJunnyHCpd2O8SA9l4hUUdGXA69azXB6bOG9Y" })
 
-function Blog() {
-  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    client.getEntries()
-      .then((response) => {
-        setPosts(response.items);
-      })
-      .catch(console.error);
-  }, []);
+    const getAllEntries = async () => {
+      try {
+        await client.getEntries().then((entries) => {
+          setBlogPosts(entries)
+        })
+      } catch (error) {
+        console.log(`Error fetching authors ${error}`);
+      }
+    };
+    getAllEntries()
+  }, [])
 
-  const [expandedPosts, setExpandedPosts] = useState([]);
 
-  const toggleExpand = (postId) => {
-    if (expandedPosts.includes(postId)) {
-      setExpandedPosts(expandedPosts.filter((id) => id !== postId));
-    } else {
-      setExpandedPosts([...expandedPosts, postId]);
-    }
-  };
 
   return (
-    <div className="container mx-auto py-8 px-4">
-      <h1 className="text-4xl font-bold mb-8 text-center">Latest Posts</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {posts.map((post) => (
-          <div key={post.sys.id} className="bg-white shadow-lg rounded-md overflow-hidden">
-            {post.fields.image && (
-              <img
-                src={post.fields.image.fields.file.url}
-                alt={post.fields.image.fields.title}
-                className="w-full h-48 object-cover"
-              />
-            )}
-            <div className="p-6">
-              <h2 className="text-xl font-semibold mb-2">{post.fields.title}</h2>
-              <div className="text-gray-600 mb-4">{post.fields.publishDate}</div>
-              <div className={`text-gray-800 ${expandedPosts.includes(post.sys.id) ? '' : 'truncate'}`}>
-                {documentToReactComponents(post.fields.content)}
+    <div id="layout" className="pure-g">
+      <div className="content pure-u-1 pure-u-md-3-4">
+        <div>
+          <div className="posts">
+            <h1 className="content-subhead">Web Dev Blog</h1>
+
+            {blogPosts?.items?.map((post) => (
+              <section className="post" key={post.sys.id}>
+                <header className="post-header">
+                  <img src={post.fields.blogImage.fields.file.url} title="" alt={post.fields.title} width="578" height="291" />
+                  <h2 className="post-title pt-3">{post.fields.title}</h2>
+                  <p className="post-meta">
+                    By <a href="https://thecodeangle.com/" className="post-author">{post.fields.blogAuthor}</a> Date <span></span>
+                    <small>
+                      {new Intl.DateTimeFormat('en-GB', {
+                        month: 'long',
+                        day: '2-digit',
+                        year: 'numeric',
+                      }).format(new Date(post.fields.createDate))}
+                    </small>
+                  </p>
+                </header>
+                <div className="post-description">
+                  <p>{post.fields.blogSummary}
+                  </p>
+                  <Link
+                    to={`/blogDetails/${post.sys.id}`}
+                    className="button button1">
+                    Read More
+                  </Link>
+                </div>
+              </section>
+            ))}
+          </div>
+
+
+          <div className="footer">
+            <div className="pure-menu pure-menu-horizontal">
+              <div className="pure-menu-item">
+                <a href="http://twitter.com/thecodeangle" className="pure-menu-link">Twitter</a>
               </div>
-              <button
-                className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none"
-                onClick={() => toggleExpand(post.sys.id)}
-              >
-                {expandedPosts.includes(post.sys.id) ? 'Read Less' : 'Read More'}
-              </button>
             </div>
           </div>
-        ))}
+        </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Blog;
+export default BlogList

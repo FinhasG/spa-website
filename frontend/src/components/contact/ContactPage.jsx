@@ -24,7 +24,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className="bg-white mb-10 mt-8">
       <div className="py-8 lg:py-8 px-4 mx-auto max-w-screen-xl flex flex-wrap justify-between items-start">
       <Title>Contact Us</Title>
           <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
