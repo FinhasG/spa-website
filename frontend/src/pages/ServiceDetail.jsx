@@ -12,13 +12,17 @@ const ServiceDetail = () => {
   // // const description = state?.description;
 
   const { state } = location;
-  console.log(location);
+
   // // Check if state exists and extract data
   // const imageUrl = state?.imageUrl;
   // const title = state?.title;
   // const description = state?.description;
 
   // Conditional rendering to handle null or undefined state
+
+ 
+ 
+
   if (!state) {
     return <div>No service data available.</div>;
   }

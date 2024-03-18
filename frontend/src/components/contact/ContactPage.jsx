@@ -234,7 +234,7 @@ const Contact = () => {
       // </div>
     //   </div>
     // </section>
-    <div  id="Contact" className="w-[1200px] h-[1000px] mx-auto py-7 border-b-[1px] border-b-black">
+    <div  id="contact" className="w-[1200px] h-[1000px] mx-auto  border-b-[1px] border-b-black pt-20">
       <h1 className="text-2xl font-bold mb-4 text-center pt-1">Contact Us</h1>
       <img src={image3} className='w-[1000px] h-[400px] mx-auto' />
       <div className='flex justify-between mt-10 sm-flex-row'>
