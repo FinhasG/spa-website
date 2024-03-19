@@ -18,10 +18,10 @@ const AboutPage = () => {
 
   return (
     <div className="relative mb-20 border-gray-500">
-      <div className="w-full h-[80px] bg-white"></div>
+      <div className="w-full h-[90px] bg-white"></div>
       <div className="flex flex-col lg:flex-row justify-between ">
         <div className="w-full lg:w-1/3 p-4">
-          <div className="bg-white rounded-lg shadow-md p-6 lg:h-64 border border-gray-300">
+          <div className="bg-white rounded-lg shadow-md p-6 lg:h-80 border border-gray-300">
             <h2 className="text-xl font-semibold mb-4">About Us</h2>
             <p>
               Welcome to our wellness center, your haven for relaxation and
@@ -49,7 +49,7 @@ const AboutPage = () => {
           </motion.div>
         </div>
         <div className="w-full lg:w-1/3 p-4">
-          <div className="bg-white rounded-lg shadow-md p-6 lg:h-64 border border-gray-300">
+          <div className="bg-white rounded-lg shadow-md p-6 lg:h-80 border border-gray-300">
             <h2 className="text-xl font-semibold mb-4">Opening Hours</h2>
             <p>
               🕗 Monday to Sunday: 8:00 AM - 9:00 PM <br></br> Indulge in tranquility and
@@ -65,71 +65,3 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
-// import React from 'react';
-// import { motion, AnimatePresence } from 'framer-motion';
-// import hairSalon from '../images/hairSalon.jpeg'
-// import SpaImages from '../images/SpaImages.jpeg'
-
-// const images = [
-//   hairSalon,
-//   SpaImages,
-//   "image_url_3.jpg"
-// ];
-
-// const AboutPage = () => {
-//   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
-
-//   const slideLeft = () => {
-//     setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-//   };
-
-//   const slideRight = () => {
-//     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-//   };
-
-//   return (
-//     <div className="relative mb-20 border-gray-500">
-//       <div className="w-full h-[80px] bg-white"></div>
-//       <div className="flex flex-col lg:flex-row justify-between ">
-//         <div className="w-full lg:w-1/3 p-4">
-//           <div className="bg-white rounded-lg shadow-md p-6 lg:h-64 border border-gray-300">
-//             <h2 className="text-xl font-semibold mb-4">About Us</h2>
-//             <p>Information about the spa and messages.</p>
-//           </div>
-//         </div>
-//         <div className="w-full lg:w-1/2 p-4 relative">
-//           <AnimatePresence initial={false} custom={currentImageIndex}>
-//             <motion.div
-//               key={currentImageIndex}
-//               className="absolute top-0 left-0 w-full h-full overflow-hidden"
-//               initial={{ opacity: 0, x: "100%" }}
-//               animate={{ opacity: 1, x: 0 }}
-//               exit={{ opacity: 0, x: "-100%" }}
-//               transition={{ duration: 0.5 }}
-//             >
-//               <img
-//                 src={images[currentImageIndex]}
-//                 alt={`Spa Image ${currentImageIndex + 1}`}
-//                 className="max-w-full h-auto"
-//               />
-//             </motion.div>
-//           </AnimatePresence>
-//           <button className="absolute top-1/2 left-4 transform -translate-y-1/2" onClick={slideLeft}>
-//             Previous
-//           </button>
-//           <button className="absolute top-1/2 right-4 transform -translate-y-1/2" onClick={slideRight}>
-//             Next
-//           </button>
-//         </div>
-//         <div className="w-full lg:w-1/3 p-4">
-//           <div className="bg-white rounded-lg shadow-md p-6 lg:h-64 border border-gray-300">
-//             <h2 className="text-xl font-semibold mb-4">Opening Hours</h2>
-//             <p>Opening hours of the spa and massage.</p>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default AboutPage;

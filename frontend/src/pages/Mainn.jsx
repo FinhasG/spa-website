@@ -15,18 +15,18 @@ const MainPage = () => {
       <div id="services">
         <ServicesPage />
       </div>
-      <div id="about">
+      <div id="aboutPage">
         <AboutPage />
       </div>
       <div id="contact">
         <ContactPage />
       </div>
       <Footer />
-      <style jsx global>{`
+      {/* <style jsx global>{`
         @media (max-width: 768px) {
-          /* Add responsive styles here */
+          Add responsive styles here 
         }
-      `}</style>
+      `}</style> */}
     </div>
   );
 };
